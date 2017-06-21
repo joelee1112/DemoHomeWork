@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomeWork.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,14 @@ namespace HomeWork1.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            List<Produce> ListProduce = new List<Produce>();
+            Produce ProduceA = new Produce { Type = MyType.Expend, Date = DateTime.Parse("2017-11-12"), Money = 800 };
+            Produce ProduceB = new Produce { Type = MyType.Expend, Date = DateTime.Parse("2017-10-12"), Money = 1700 };
+            Produce ProduceC = new Produce { Type = MyType.Expend, Date = DateTime.Parse("2017-9-12"), Money = 400 };
+            ListProduce.Add(ProduceA);
+            ListProduce.Add(ProduceB);
+            ListProduce.Add(ProduceC);
+            return View(ListProduce);
         }
 
         public ActionResult About()
